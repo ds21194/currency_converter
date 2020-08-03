@@ -1,4 +1,4 @@
-# currency_converter
+# Currency Converter
 
 To use this app, download the files,
 and edit "input" file with the wanted currencies to convert, and the numbers you want to convert.
