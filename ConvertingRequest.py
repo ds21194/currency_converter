@@ -15,16 +15,14 @@ class ConvertingRequest:
         reqLink = f"https://free.currconv.com/api/v7/convert?q={convDetails}&compact=ultra&apiKey=d4e565adab0cc031a667"
         res = requests.get(reqLink).text
 
-        if json.loads(res) == "{}":
+        if res == "{}":
             raise ValueError("One of the languages parameters are wrong")
-
-        # print(json.loads(res)[convDetails])
 
         return json.loads(res)[convDetails]
 
     def getResult(self):
         param = self.getConverterParam()
-        return list(map(lambda x: int(x)*param, self.numbers))
+        return list(map(lambda x: float(x)*param, self.numbers))
 
 
 if __name__ == '__main__':

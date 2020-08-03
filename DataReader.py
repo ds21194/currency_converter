@@ -1,17 +1,16 @@
 import sys
 
 
-def main(filepath):
+def getData(filepath):
     try:
-        file = open(filepath[0], "r")
+        file = open(filepath, "r")
     except Exception:
-        print("can not open file")
-        return
+        raise ValueError("can not open file")
 
     details = []
     for line in file:
-        details.append(line)
+        details.append(line.strip())
+    return details
 
-
-if __name__ == '__main__':
-    main(sys.argv[1:])
+# if __name__ == '__main__': # TODO: delete
+#     main(sys.argv[1:])
